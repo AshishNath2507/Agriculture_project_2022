@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+
+:root {
+    --primary-color: #132733;
+}
+
+body {
+    color: #333;
+    line-height: 1.6;
+    background-color: var(--primary-color);
+}
+
+h1,
+h2 {
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 2px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 40px;
+    font-family: 'Lato', sans-serif;
+}
+
+.alumni-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin: -10px;
+}
+
+.alumnireg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    color: #fff;
+    position: relative;
+}
+
+.alumnireg h1 {
+    font-size: 40px;
+}
+
+.card{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0, 2);
+    padding: 20px;
+    margin: 0;
+    color: #333;
+}
+
+.alumni-form{
+    position: relative;
+    top: 10px;
+    height: 24rem;
+    width: 27rem;
+    padding: 30px;
+    z-index: 100;
+    justify-self: flex-end;
+}
+
+.alumni-form input[type='text'],
+.alumni-form input[type='password'],
+.alumni-form input[type='email']{
+    height: 2em;
+    border: 0;
+    border-bottom: 1px solid #b4b3cb;
+    width: 100%;
+    padding: 10px;
+    font-size: 13px;
+}
+
+.alumni-form input, textarea:focus{
+    outline: none;
+}
+
+.alumni-form .input-row{
+    margin: 8px 20px;
+    position: relative;
+}
+
+.card h2{
+    color: #333;
+    font-weight: 600;
+}
+
+
+.btn{
+    display: inline-block;
+    padding: 7px;
+    cursor: pointer;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 7rem;
+}
+
+.btn:hover{
+    transform: scale(0.98);
+}
+
+.login-link{
+    margin: 50px 30px;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    bottom: -70px;
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    transform: skewY(-4deg)
+}
+
+.otp-form{
+    /* height: 300px; */
+    overflow: visible;
+}
