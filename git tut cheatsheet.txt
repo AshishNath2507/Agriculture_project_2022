@@ -1,0 +1,11 @@
+$ git config --global user.name "Ashish"
+$ git config --global user.email "ashishnath905@gmail.com"
+touch .gitignore
+git init
+git add .
+git commit -m "Initial commit"
+git status  //Just to see the working tree is clean or not
+$ git remote add origin git@github.com:FakaMonsteR/Agriculture_project_2022.git  //make the repo of github to ssh and copy the path
+$ ssh-keygen -t ed25519 -C "ashishnath905@gmail.com"  //make the ssh key 
+$ cat /c/Users/Faka/.ssh/id_ed25519.pub  //copy the directory
+$ git push origin master
