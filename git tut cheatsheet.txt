@@ -9,3 +9,11 @@ $ git remote add origin git@github.com:FakaMonsteR/Agriculture_project_2022.git 
 $ ssh-keygen -t ed25519 -C "ashishnath905@gmail.com"  //make the ssh key 
 $ cat /c/Users/Faka/.ssh/id_ed25519.pub  //copy the directory
 $ git push origin master
+
+
+
+To update the repo:-
+git status
+git add .
+git commit -m "<any description of updation>"
+git push origin master
