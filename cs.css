@@ -260,7 +260,7 @@ img {
 
 /* Tablets and under */
 
-@media(max-width: 768px){
+@media only screen and (max-width: 768px){
     .grid
     {
         grid-template-columns: 1fr;
@@ -286,7 +286,7 @@ img {
 
 /* Mobile */
 
-@media (max-width: 500px){
+@media only screen and (max-width: 500px){
     /* .grid,
     .contact .grid{
         grid-template-columns: 1fr;
@@ -315,7 +315,6 @@ img {
         flex-direction: row;
     }
 }
-
 
 
 
