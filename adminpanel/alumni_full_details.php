@@ -45,6 +45,7 @@ session_start();
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="table.css">
+    <link rel="stylesheet" href="./css/alumnicss.css">
 
 </head>
 
@@ -257,120 +258,167 @@ session_start();
             ?>
 
             <div class="container container-fluid alumni-details-container">
-                <fieldset >
-                    <legend>Personal Information</legend>
-                    <div class="fields">
+
+                <!-- Grid Container -->
+                <div class="alumni-grid">
+
+                    <div class="serial grid-0">
                         <label for="name">Serial No.</label>
                         <p><?php echo $row['slno']; ?></p>
                     </div>
 
-                    <div class="fields">
-                        <label for="name">Name</label>
-                        <p><?php echo $row['name']; ?></p>
+                    <div class="first-info grid-1">
+                        <div class="fields">
+                            <img src="<?php echo '../' . $row["photo"]; ?>" alt="image" style="width:150px;">
+                        </div>
+                        <div class="fields">
+                            <label for="name">Name</label>
+                            <p><?php echo $row['name']; ?></p>
+                        </div>
+                        <div class="fields">
+                            <label for="name">Gender</label>
+                            <p><?php echo $row['gender']; ?></p>
+                        </div>
+                        <div class="fields">
+                            <label for="name">E-mail</label>
+                            <p><?php echo $row['email']; ?></p>
+                        </div>
+                        <div class="fields">
+                            <label for="name">Phone No.</label>
+                            <p><?php echo $row['phone']; ?></p>
+                        </div>
                     </div>
-                    <div class="fields">
-                        <label for="name">College</label>
-                        <p><?php echo $row['college']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">Gender</label>
-                        <p><?php echo $row['gender']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">Date of Birth</label>
-                        <p><?php echo $row['dob']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">Present Occupation / Position / Designation</label>
-                        <p><?php echo $row['occupation']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">Company Name / Organization Name</label>
-                        <p><?php echo $row['organization']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">Office / Present Address</label>
-                        <p><?php echo $row['o_address']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">State</label>
-                        <p><?php echo $row['state']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">Pincode</label>
-                        <p><?php echo $row['pin']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">Country</label>
-                        <p><?php echo $row['country']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">Permanent Address</label>
-                        <p><?php echo $row['p_address']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">State</label>
-                        <p><?php echo $row['p_state']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">Pincode</label>
-                        <p><?php echo $row['p_pin']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">Country</label>
-                        <p><?php echo $row['p_country']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">Nationality</label>
-                        <p><?php echo $row['nationality']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">Blood Group</label>
-                        <p><?php echo $row['blood_group']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">E-mail</label>
-                        <p><?php echo $row['email']; ?></p>
-                    </div>
-                    <div class="fields">
-                        <label for="name">Phone No.</label>
-                        <p><?php echo $row['phone']; ?></p>
-                    </div>
-                </fieldset>
 
 
-                <div class="fields">
-                    <label for="name"></label>
-                    <p><?php echo $row['']; ?></p>
+                    <div class="p-info grid-2">
+
+                        <div class="p-info-grid">
+
+                            <div class="sub-grid-1">
+                                
+                                <div class="fields">
+                                    <label for="name">College</label>
+                                    <p><?php echo $row['college']; ?></p>
+                                </div>
+                                <div class="fields">
+                                    <label for="name">Date of Birth</label>
+                                    <p><?php echo $row['dob']; ?></p>
+                                </div>
+                                <div class="fields">
+                                    <label for="name">Present Occupation / Position / Designation</label>
+                                    <p><?php echo $row['occupation']; ?></p>
+                                </div>
+                                <div class="fields">
+                                    <label for="name">Company Name / Organization Name</label>
+                                    <p><?php echo $row['organization']; ?></p>
+                                </div>
+                                <div class="fields">
+                                    <label for="name">Office / Present Address</label>
+                                    <p><?php echo $row['o_address']; ?></p>
+                                </div>
+                                <div class="fields">
+                                    <label for="name">State</label>
+                                    <p><?php echo $row['state']; ?></p>
+                                </div>
+                                <div class="fields">
+                                    <label for="name">Pincode</label>
+                                    <p><?php echo $row['pin']; ?></p>
+                                </div>
+                            </div>
+                            <div class="sub-grid-2">
+                                <div class="fields">
+                                    <label for="name">Country</label>
+                                    <p><?php echo $row['country']; ?></p>
+                                </div>
+                                <div class="fields">
+                                    <label for="name">Permanent Address</label>
+                                    <p><?php echo $row['p_address']; ?></p>
+                                </div>
+                                <div class="fields">
+                                    <label for="name">State</label>
+                                    <p><?php echo $row['p_state']; ?></p>
+                                </div>
+                                <div class="fields">
+                                    <label for="name">Pincode</label>
+                                    <p><?php echo $row['p_pin']; ?></p>
+                                </div>
+                                <div class="fields">
+                                    <label for="name">Country</label>
+                                    <p><?php echo $row['p_country']; ?></p>
+                                </div>
+                                <div class="fields">
+                                    <label for="name">Nationality</label>
+                                    <p><?php echo $row['nationality']; ?></p>
+                                </div>
+                                <div class="fields">
+                                    <label for="name">Blood Group</label>
+                                    <p><?php echo $row['blood_group']; ?></p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="grad-info grid-3">
+                        <div class="fields">
+                            <label for="name">Graduation</label>
+                            <p><?php echo $row['graduation']; ?></p>
+                        </div>
+                        <div class="fields">
+                            <label for="name">Year of Admission</label>
+                            <p><?php echo $row['year_of_adm']; ?></p>
+                        </div>
+                        <div class="fields">
+                            <label for="name">Year of Degree Awarded</label>
+                            <p><?php echo $row['year_of_pass']; ?></p>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="mst-info grid-4">
+                        <div class="fields">
+                            <label for="name">Masters</label>
+                            <p><?php echo $row['masters']; ?></p>
+                        </div>
+                        <div class="fields">
+                            <label for="name">Year of Admission</label>
+                            <p><?php echo $row['year_of_m_adm']; ?></p>
+                        </div>
+                        <div class="fields">
+                            <label for="name">Year of Degree Awarded</label>
+                            <p><?php echo $row['year_of_m_pass']; ?></p>
+                        </div>
+                        <div class="fields">
+                            <label for="name">Master's Discipline</label>
+                            <p><?php echo $row['m_discipline']; ?></p>
+                        </div>
+
+                    </div>
+
+                    <div class="doc-info grid-5">
+                        <div class="fields">
+                            <label for="name">Doctoral</label>
+                            <p><?php echo $row['doctoral']; ?></p>
+                        </div>
+                        <div class="fields">
+                            <label for="name">Year of Admission</label>
+                            <p><?php echo $row['year_of_d_adm']; ?></p>
+                        </div>
+                        <div class="fields">
+                            <label for="name">Year of Degree Awarded</label>
+                            <p><?php echo $row['year_of_d_pass']; ?></p>
+                        </div>
+                        <div class="fields">
+                            <label for="name">Doctoral's Discipline</label>
+                            <p><?php echo $row['doc_discipline']; ?></p>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="fields">
-                    <label for="name"></label>
-                    <p><?php echo $row['']; ?></p>
-                </div>
-                <div class="fields">
-                    <label for="name"></label>
-                    <p><?php echo $row['']; ?></p>
-                </div>
-                <div class="fields">
-                    <label for="name"></label>
-                    <p><?php echo $row['']; ?></p>
-                </div>
-                <div class="fields">
-                    <label for="name"></label>
-                    <p><?php echo $row['']; ?></p>
-                </div>
-                <div class="fields">
-                    <label for="name"></label>
-                    <p><?php echo $row['']; ?></p>
-                </div>
-                <div class="fields">
-                    <label for="name"></label>
-                    <p><?php echo $row['']; ?></p>
-                </div>
-                <div class="fields">
-                    <label for="name"></label>
-                    <p><?php echo $row['']; ?></p>
-                </div>
+                <!-- End of grid container -->
             </div>
 
             <!-- End of Main Content -->

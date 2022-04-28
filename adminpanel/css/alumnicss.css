@@ -1,0 +1,26 @@
+
+
+.alumni-grid{
+    color: #333;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    gap: .3rem;
+}
+
+.grid-0{
+    grid-area: 1 / 1 / span 1/ span 3;
+}
+
+.serial{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    
+}
+
+
+.alumni-grid label{
+    color: rgb(8, 102, 102);
+    text-decoration: underline;
+}
