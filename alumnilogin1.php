@@ -5,6 +5,7 @@
     session_start();  
 
     require ("connect.php");
+    
     if(isset($_POST["submit"])){
 
         $email = $_GET["email"];

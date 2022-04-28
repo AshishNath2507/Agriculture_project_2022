@@ -2,6 +2,7 @@
 session_start();
 
 
+
 ?>
 
 
@@ -16,6 +17,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
+    <title>Admin - Alumni Control</title>
 
     <!-- jQuery dataTable cdns -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -35,71 +38,14 @@ session_start();
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
-
-    <title>Admin - Alumni Control</title>
-
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <style>
-        .actions{
-            display: flex;
-            justify-content: space-evenly;
-            gap: 1rem;
-        }
-
-        .edit::before {
-            display: inline-block;
-            font: var(--fa-font-solid);
-            content: "\f044";
-            font-weight: 600;
-            text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
-            color: green;
-        }
-
-        .delete::before {
-            display: inline-block;
-            font: var(--fa-font-solid);
-            content: "\f2ed";
-            font-weight: 600;
-            text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
-            color: red;
-            border: 0;
-        }
-    </style>
-
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="table.css">
-    <script>
-        $(document).ready(function() {
-            // Activate tooltip
-            $('[data-toggle="tooltip"]').tooltip();
 
-            // Select/Deselect checkboxes
-            var checkbox = $('table tbody input[type="checkbox"]');
-            $("#selectAll").click(function() {
-                if (this.checked) {
-                    checkbox.each(function() {
-                        this.checked = true;
-                    });
-                } else {
-                    checkbox.each(function() {
-                        this.checked = false;
-                    });
-                }
-            });
-            checkbox.click(function() {
-                if (!this.checked) {
-                    $("#selectAll").prop("checked", false);
-                }
-            });
-        });
-    </script>
 </head>
 
 <body id="page-top">
@@ -136,21 +82,6 @@ session_start();
                 Interface
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li> -->
-
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item active">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -172,8 +103,7 @@ session_start();
             <hr class="sidebar-divider">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Co-Admin</span>
                 </a>
@@ -251,10 +181,6 @@ session_start();
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-
-
-
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -278,11 +204,12 @@ session_start();
                             </div>
                         </li>
 
-
-
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
+
+
+
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
@@ -315,185 +242,137 @@ session_start();
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    <div class="container-xl">
-                        <div class="table-responsive">
-                            <div class="table-wrapper">
-                                <div class="table-title">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <h2>Manage <b>Alumni</b></h2>
-
-                                        </div>
-                                        <!-- <div class="col-sm-6">
-                                            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Alumni</span></a>
-                                            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
-                                        </div> -->
-                                    </div>
-
-                                </div>
-                                <!-- <div class="addAlumni">
-                                    <a href="../alumniadd.php">Add Alumni</a>
-                                </div> -->
-                                <table id="alumni" class="table table-striped table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Slno</th>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Occupation</th>
-                                            <th>Organization</th>
-                                            <th>Office/Present Address</th>
-                                            <th>State</th>
-                                            <th>Email ID</th>
-                                            <th>Mobile Number</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                        require '../connect.php';
-                                        $result = mysqli_query($con, "SELECT * FROM alumini ORDER BY slno DESC");
-                                        while ($row = mysqli_fetch_array($result)) {
-                                    ?>
-                                        <tr>
-                                            <td> <?php echo $row["slno"]  ?> </td>
-                                            <td><img src="<?php echo '../' . $row["photo"]; ?>" alt="image" style="width:50px;"></td>
-                                            <td> <a href="./alumni_full_details.php?slno=<?php echo $row["slno"] ?>"><?php echo $row["name"]?></a></td>
-                                            <td> <?php echo $row["occupation"]?> </td>
-                                            <td> <?php echo $row["organization"]?> </td>
-                                            <td> <?php echo $row["o_address"]?> </td>
-                                            <td> <?php echo $row["state"]?> </td>
-                                            <td> <?php echo $row["email"]?> </td>
-                                            <td> <?php echo $row["phone"]?> </td>
-                                            <td class="actions">
-                                                <button type="button" href="#editEmployeeModal" class="edit editbtn" data-toggle="modal"></button>                
-                                                <button type="button" class="delete deletebtn" value="<?php echo $row["slno"]; ?>"></button>
-                                            </td>
-
-                                        </tr>
-                                        <?php
-                                        };
-                                        ?>
-
-
-
-
-                                    </tbody>
-                                </table>
-
-                                <!-- <button type="button" class="btn btn-danger deletebtn">Delete</button> -->
-                                <!-- <a href="#deleteEmployeeModal" ' . $row["slno"] . '  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a> -->
-                                <!-- <a href="#editEmployeeModal" ' . $row["slno"] . ' data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a> -->
-
-                                <!-- <a href="#deleteEmployeeModal" ' . $row["slno"] . '  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a> -->
-
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Edit Modal HTML -->
-                    <div id="addEmployeeModal" class="modal fade">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <form>
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Add Employee</h4>
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label>Name</label>
-                                            <input type="text" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="email" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Address</label>
-                                            <textarea class="form-control" required></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Phone</label>
-                                            <input type="text" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                        <input type="submit" class="btn btn-success" value="Add">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Edit Modal HTML -->
-                    <div id="editModal" class="modal fade">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <form method="POST" action="#">
-
-                                    <input type="hidden" name="delete_id" class="edit_user_id">
-                                    
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Edit Employee</h4>
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label>Name</label>
-                                            <input type="text" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="email" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Address</label>
-                                            <textarea class="form-control" required></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Phone</label>
-                                            <input type="text" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                        <input type="submit" class="btn btn-info" value="Save">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Delete Modal HTML -->
-                    <div id="DeleteModal" class="modal fade">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <form action="code.php" method="POST">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Delete Record</h4>
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <input type="hidden" name="delete_id" class="delete_user_id">
-
-                                        <p>Are you sure you want to delete these Records?</p>
-                                        <p class="text-warning"><small>This action cannot be undone.</small></p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                        <input type="submit" name="deleteUserButton" class="btn btn-danger" value="Delete">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.container-fluid -->
-
             </div>
+
+            <!-- Start of Main Content -->
+            <?php
+
+            require "../connect.php";
+
+            $sl = $_GET["slno"];
+            $result = "SELECT * FROM alumini WHERE slno = '$sl'";
+            $query = mysqli_query($con, $result);
+            $row = mysqli_fetch_array($query);
+
+            ?>
+
+            <div class="container container-fluid alumni-details-container">
+                <fieldset >
+                    <legend>Personal Information</legend>
+                    <div class="fields">
+                        <label for="name">Serial No.</label>
+                        <p><?php echo $row['slno']; ?></p>
+                    </div>
+
+                    <div class="fields">
+                        <label for="name">Name</label>
+                        <p><?php echo $row['name']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">College</label>
+                        <p><?php echo $row['college']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">Gender</label>
+                        <p><?php echo $row['gender']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">Date of Birth</label>
+                        <p><?php echo $row['dob']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">Present Occupation / Position / Designation</label>
+                        <p><?php echo $row['occupation']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">Company Name / Organization Name</label>
+                        <p><?php echo $row['organization']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">Office / Present Address</label>
+                        <p><?php echo $row['o_address']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">State</label>
+                        <p><?php echo $row['state']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">Pincode</label>
+                        <p><?php echo $row['pin']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">Country</label>
+                        <p><?php echo $row['country']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">Permanent Address</label>
+                        <p><?php echo $row['p_address']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">State</label>
+                        <p><?php echo $row['p_state']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">Pincode</label>
+                        <p><?php echo $row['p_pin']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">Country</label>
+                        <p><?php echo $row['p_country']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">Nationality</label>
+                        <p><?php echo $row['nationality']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">Blood Group</label>
+                        <p><?php echo $row['blood_group']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">E-mail</label>
+                        <p><?php echo $row['email']; ?></p>
+                    </div>
+                    <div class="fields">
+                        <label for="name">Phone No.</label>
+                        <p><?php echo $row['phone']; ?></p>
+                    </div>
+                </fieldset>
+
+
+                <div class="fields">
+                    <label for="name"></label>
+                    <p><?php echo $row['']; ?></p>
+                </div>
+                <div class="fields">
+                    <label for="name"></label>
+                    <p><?php echo $row['']; ?></p>
+                </div>
+                <div class="fields">
+                    <label for="name"></label>
+                    <p><?php echo $row['']; ?></p>
+                </div>
+                <div class="fields">
+                    <label for="name"></label>
+                    <p><?php echo $row['']; ?></p>
+                </div>
+                <div class="fields">
+                    <label for="name"></label>
+                    <p><?php echo $row['']; ?></p>
+                </div>
+                <div class="fields">
+                    <label for="name"></label>
+                    <p><?php echo $row['']; ?></p>
+                </div>
+                <div class="fields">
+                    <label for="name"></label>
+                    <p><?php echo $row['']; ?></p>
+                </div>
+                <div class="fields">
+                    <label for="name"></label>
+                    <p><?php echo $row['']; ?></p>
+                </div>
+            </div>
+
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -543,18 +422,18 @@ session_start();
         });
 
         //Delete modal function
-        $(document).ready(function(){
-            $('.deletebtn').click(function(e){
+        $(document).ready(function() {
+            $('.deletebtn').click(function(e) {
                 e.preventDefault();
                 var user_id = $(this).val();
                 $('.delete_user_id').val(user_id);
-                $('#DeleteModal').modal('show');                
+                $('#DeleteModal').modal('show');
             });
         });
 
         //Edit modal function
-        $(document).ready(function(){
-            $('.editbtn').click(function(e){
+        $(document).ready(function() {
+            $('.editbtn').click(function(e) {
                 e.preventDefault();
                 var user_id = $(this).val();
                 $('.edit_user_id').val(user_id);
