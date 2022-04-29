@@ -263,11 +263,21 @@ session_start();
                 <div class="alumni-grid">
 
                     <div class="serial grid-0">
-                        <label for="name">Serial No.</label>
-                        <p><?php echo $row['slno']; ?></p>
+                        <div class="fields">
+                            <label for="slno">Serial No.</label>
+                            <p><?php echo $row['slno']; ?></p>
+
+                            <div class="button-container">
+                                <button class="delete">Delete</button>
+                                <button class="edit">Edit</button>
+                                <button class="back">Back</button>
+                                <button class="print" onclick="window.print()">Print</button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="first-info grid-1">
+                        <span>Primary Informations</span>
                         <div class="fields">
                             <img src="<?php echo '../' . $row["photo"]; ?>" alt="image" style="width:150px;">
                         </div>
@@ -276,15 +286,15 @@ session_start();
                             <p><?php echo $row['name']; ?></p>
                         </div>
                         <div class="fields">
-                            <label for="name">Gender</label>
+                            <label for="gender">Gender</label>
                             <p><?php echo $row['gender']; ?></p>
                         </div>
                         <div class="fields">
-                            <label for="name">E-mail</label>
+                            <label for="email">E-mail</label>
                             <p><?php echo $row['email']; ?></p>
                         </div>
                         <div class="fields">
-                            <label for="name">Phone No.</label>
+                            <label for="phone">Phone No.</label>
                             <p><?php echo $row['phone']; ?></p>
                         </div>
                     </div>
@@ -292,66 +302,68 @@ session_start();
 
                     <div class="p-info grid-2">
 
-                        <div class="p-info-grid">
+                        <div class="nested-grid">
 
+                            <div class="sub-grid-0">
+                                <span>Additional Informations</span>
+                            </div>
                             <div class="sub-grid-1">
-                                
                                 <div class="fields">
-                                    <label for="name">College</label>
+                                    <label for="college">College</label>
                                     <p><?php echo $row['college']; ?></p>
                                 </div>
                                 <div class="fields">
-                                    <label for="name">Date of Birth</label>
+                                    <label for="dob">Date of Birth</label>
                                     <p><?php echo $row['dob']; ?></p>
                                 </div>
                                 <div class="fields">
-                                    <label for="name">Present Occupation / Position / Designation</label>
+                                    <label for="occupation">Present Occupation / Position / Designation</label>
                                     <p><?php echo $row['occupation']; ?></p>
                                 </div>
                                 <div class="fields">
-                                    <label for="name">Company Name / Organization Name</label>
+                                    <label for="organization">Company Name / Organization Name</label>
                                     <p><?php echo $row['organization']; ?></p>
                                 </div>
                                 <div class="fields">
-                                    <label for="name">Office / Present Address</label>
+                                    <label for="o_address">Office / Present Address</label>
                                     <p><?php echo $row['o_address']; ?></p>
                                 </div>
                                 <div class="fields">
-                                    <label for="name">State</label>
+                                    <label for="state">State</label>
                                     <p><?php echo $row['state']; ?></p>
                                 </div>
                                 <div class="fields">
-                                    <label for="name">Pincode</label>
+                                    <label for="pin">Pincode</label>
                                     <p><?php echo $row['pin']; ?></p>
                                 </div>
                             </div>
                             <div class="sub-grid-2">
                                 <div class="fields">
-                                    <label for="name">Country</label>
+                                    <label for="country">Country</label>
                                     <p><?php echo $row['country']; ?></p>
                                 </div>
                                 <div class="fields">
-                                    <label for="name">Permanent Address</label>
+                                    <label for="p_address">Permanent Address</label>
                                     <p><?php echo $row['p_address']; ?></p>
                                 </div>
                                 <div class="fields">
-                                    <label for="name">State</label>
+                                    <label for="p_state">State</label>
                                     <p><?php echo $row['p_state']; ?></p>
                                 </div>
                                 <div class="fields">
-                                    <label for="name">Pincode</label>
+                                    <label for="p_pin">Pincode</label>
                                     <p><?php echo $row['p_pin']; ?></p>
                                 </div>
                                 <div class="fields">
-                                    <label for="name">Country</label>
+                                    <label for="p_country">Country</label>
                                     <p><?php echo $row['p_country']; ?></p>
                                 </div>
                                 <div class="fields">
-                                    <label for="name">Nationality</label>
+                                    <label for="nationality">Nationality</label>
                                     <p><?php echo $row['nationality']; ?></p>
                                 </div>
                                 <div class="fields">
-                                    <label for="name">Blood Group</label>
+                                    <label for="blood_group">Blood Group</label>
                                     <p><?php echo $row['blood_group']; ?></p>
                                 </div>
                             </div>
@@ -361,16 +373,17 @@ session_start();
                     </div>
 
                     <div class="grad-info grid-3">
+                        <span>Graduation</span>
                         <div class="fields">
-                            <label for="name">Graduation</label>
+                            <label for="graduation">Graduation</label>
                             <p><?php echo $row['graduation']; ?></p>
                         </div>
                         <div class="fields">
-                            <label for="name">Year of Admission</label>
+                            <label for="year_of_adm">Year of Admission</label>
                             <p><?php echo $row['year_of_adm']; ?></p>
                         </div>
                         <div class="fields">
-                            <label for="name">Year of Degree Awarded</label>
+                            <label for="year_of_pass">Year of Degree Awarded</label>
                             <p><?php echo $row['year_of_pass']; ?></p>
                         </div>
 
@@ -379,46 +392,49 @@ session_start();
 
 
                     <div class="mst-info grid-4">
+                        <span>Post-Graduation</span>
                         <div class="fields">
-                            <label for="name">Masters</label>
+                            <label for="masters">Masters</label>
                             <p><?php echo $row['masters']; ?></p>
                         </div>
                         <div class="fields">
-                            <label for="name">Year of Admission</label>
+                            <label for="year_of_m_adm">Year of Admission</label>
                             <p><?php echo $row['year_of_m_adm']; ?></p>
                         </div>
                         <div class="fields">
-                            <label for="name">Year of Degree Awarded</label>
+                            <label for="year_of_m_pass">Year of Degree Awarded</label>
                             <p><?php echo $row['year_of_m_pass']; ?></p>
                         </div>
                         <div class="fields">
-                            <label for="name">Master's Discipline</label>
+                            <label for="m_discipline">Master's Discipline</label>
                             <p><?php echo $row['m_discipline']; ?></p>
                         </div>
 
                     </div>
 
                     <div class="doc-info grid-5">
+                        <span>Doctorate Degree</span>
                         <div class="fields">
-                            <label for="name">Doctoral</label>
+                            <label for="doctoral">Doctoral</label>
                             <p><?php echo $row['doctoral']; ?></p>
                         </div>
                         <div class="fields">
-                            <label for="name">Year of Admission</label>
+                            <label for="year_of_d_adm">Year of Admission</label>
                             <p><?php echo $row['year_of_d_adm']; ?></p>
                         </div>
                         <div class="fields">
-                            <label for="name">Year of Degree Awarded</label>
+                            <label for="year_of_d_pass">Year of Degree Awarded</label>
                             <p><?php echo $row['year_of_d_pass']; ?></p>
                         </div>
                         <div class="fields">
-                            <label for="name">Doctoral's Discipline</label>
+                            <label for="doc_discipline">Doctoral's Discipline</label>
                             <p><?php echo $row['doc_discipline']; ?></p>
                         </div>
 
                     </div>
                 </div>
                 <!-- End of grid container -->
+
             </div>
 
             <!-- End of Main Content -->
