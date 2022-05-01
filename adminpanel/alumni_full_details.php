@@ -267,35 +267,42 @@ session_start();
                             <label for="slno">Serial No.</label>
                             <p><?php echo $row['slno']; ?></p>
 
-                            <div class="button-container">
-                                <button class="delete">Delete</button>
-                                <button class="edit">Edit</button>
-                                <button class="back">Back</button>
-                                <button class="print" onclick="window.print()">Print</button>
-                            </div>
                         </div>
+                        <div class="button-container">
+                            <!-- <button class="back control-btn"><a href="./alumnicontrol.php"></a></button>
+                            <button class="delete deletebtn control-btn"></button>
+                            <button class="edit editbtn control-btn"></button>
+                            <button class="print control-btn" onclick="window.print()"></button> -->
+                            <li><a class="back control-btn" href="./alumnicontrol.php"></a></li>
+                            <li><a class="delete control-btn" href=""></a></li>
+                            <li><a class="edit control-btn" href=""></a></li>
+                            <li><a class="print control-btn" href="" onclick="window.print()"></a></li>                            
+                        </div>
+                        
                     </div>
 
                     <div class="first-info grid-1">
-                        <span>Primary Informations</span>
+                        <span class="heading-para">Primary Informations</span>
                         <div class="fields">
                             <img src="<?php echo '../' . $row["photo"]; ?>" alt="image" style="width:150px;">
                         </div>
-                        <div class="fields">
-                            <label for="name">Name</label>
-                            <p><?php echo $row['name']; ?></p>
-                        </div>
-                        <div class="fields">
-                            <label for="gender">Gender</label>
-                            <p><?php echo $row['gender']; ?></p>
-                        </div>
-                        <div class="fields">
-                            <label for="email">E-mail</label>
-                            <p><?php echo $row['email']; ?></p>
-                        </div>
-                        <div class="fields">
-                            <label for="phone">Phone No.</label>
-                            <p><?php echo $row['phone']; ?></p>
+                        <div class="primary-field">
+                            <div class="fields">
+                                <label for="name">Name</label>
+                                <p><?php echo $row['name']; ?></p>
+                            </div>
+                            <div class="fields">
+                                <label for="gender">Gender</label>
+                                <p><?php echo $row['gender']; ?></p>
+                            </div>
+                            <div class="fields">
+                                <label for="email">E-mail</label>
+                                <p><?php echo $row['email']; ?></p>
+                            </div>
+                            <div class="fields">
+                                <label for="phone">Phone</label>
+                                <p><?php echo $row['phone']; ?></p>
+                            </div>
                         </div>
                     </div>
 
@@ -305,7 +312,7 @@ session_start();
                         <div class="nested-grid">
 
                             <div class="sub-grid-0">
-                                <span>Additional Informations</span>
+                                <span class="heading-para">Additional Informations</span>
                             </div>
                             <div class="sub-grid-1">
                                 <div class="fields">
@@ -326,7 +333,7 @@ session_start();
                                 </div>
                                 <div class="fields">
                                     <label for="o_address">Office / Present Address</label>
-                                    <p><?php echo $row['o_address']; ?></p>
+                                    <p title="<?php echo $row['o_address'];?>"><?php echo $row['o_address']; ?></p>
                                 </div>
                                 <div class="fields">
                                     <label for="state">State</label>
@@ -344,7 +351,7 @@ session_start();
                                 </div>
                                 <div class="fields">
                                     <label for="p_address">Permanent Address</label>
-                                    <p><?php echo $row['p_address']; ?></p>
+                                    <p title="<?php echo $row['p_address']; ?>"><?php echo $row['p_address']; ?></p>
                                 </div>
                                 <div class="fields">
                                     <label for="p_state">State</label>
@@ -373,7 +380,7 @@ session_start();
                     </div>
 
                     <div class="grad-info grid-3">
-                        <span>Graduation</span>
+                        <span class="heading-para">Graduation</span>
                         <div class="fields">
                             <label for="graduation">Graduation</label>
                             <p><?php echo $row['graduation']; ?></p>
@@ -392,7 +399,7 @@ session_start();
 
 
                     <div class="mst-info grid-4">
-                        <span>Post-Graduation</span>
+                        <span class="heading-para">Post-Graduation</span>
                         <div class="fields">
                             <label for="masters">Masters</label>
                             <p><?php echo $row['masters']; ?></p>
@@ -413,7 +420,7 @@ session_start();
                     </div>
 
                     <div class="doc-info grid-5">
-                        <span>Doctorate Degree</span>
+                        <span class="heading-para">Doctorate Degree</span>
                         <div class="fields">
                             <label for="doctoral">Doctoral</label>
                             <p><?php echo $row['doctoral']; ?></p>
@@ -480,11 +487,6 @@ session_start();
     </div>
 
     <script>
-        //Datatable function !!!important for datatable to run
-        $(document).ready(function() {
-            $('#alumni').DataTable();
-        });
-
         //Delete modal function
         $(document).ready(function() {
             $('.deletebtn').click(function(e) {

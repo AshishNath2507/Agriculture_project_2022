@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
     $phone = mysqli_real_escape_string($con, trim($_POST["phone"]));
     $graduation = mysqli_real_escape_string($con, trim($_POST["graduation"]));
     $gradyear = mysqli_real_escape_string($con, trim($_POST["gradyear"]));
-    $gpassou = mysqli_real_escape_string($con, trim($_POST["gpassout"]));
+    $gpassout = mysqli_real_escape_string($con, trim($_POST["gpassout"]));
     $masters = mysqli_real_escape_string($con, trim($_POST["masters"]));
     $myear = mysqli_real_escape_string($con, trim($_POST["myear"]));
     $mpassout = mysqli_real_escape_string($con, trim($_POST["mpassout"]));

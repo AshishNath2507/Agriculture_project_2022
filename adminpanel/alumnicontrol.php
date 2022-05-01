@@ -70,6 +70,11 @@ session_start();
             color: red;
             border: 0;
         }
+        td{
+            max-width: 100px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
     </style>
 
     <!-- Custom styles for this template-->
@@ -363,9 +368,9 @@ session_start();
                                             <td> <a href="./alumni_full_details.php?slno=<?php echo $row["slno"] ?>"><?php echo $row["name"]?></a></td>
                                             <td> <?php echo $row["occupation"]?> </td>
                                             <td> <?php echo $row["organization"]?> </td>
-                                            <td> <?php echo $row["o_address"]?> </td>
+                                            <td title="<?php echo $row["o_address"]?>"> <?php echo $row["o_address"]?> </td>
                                             <td> <?php echo $row["state"]?> </td>
-                                            <td> <?php echo $row["email"]?> </td>
+                                            <td title="<?php echo $row["email"]?>"> <?php echo $row["email"]?> </td>
                                             <td> <?php echo $row["phone"]?> </td>
                                             <td class="actions">
                                                 <button type="button" href="#editEmployeeModal" class="edit editbtn" data-toggle="modal"></button>                
