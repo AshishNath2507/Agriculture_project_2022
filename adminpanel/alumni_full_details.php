@@ -62,7 +62,7 @@ session_start();
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin</div>
             </a>
 
             <!-- Divider -->
@@ -269,16 +269,13 @@ session_start();
 
                         </div>
                         <div class="button-container">
-                            <!-- <button class="back control-btn"><a href="./alumnicontrol.php"></a></button>
-                            <button class="delete deletebtn control-btn"></button>
-                            <button class="edit editbtn control-btn"></button>
-                            <button class="print control-btn" onclick="window.print()"></button> -->
+                            
                             <li><a class="back control-btn" href="./alumnicontrol.php"></a></li>
-                            <li><a class="delete control-btn" href=""></a></li>
-                            <li><a class="edit control-btn" href=""></a></li>
-                            <li><a class="print control-btn" href="" onclick="window.print()"></a></li>                            
+                            <li><button class="delete deletebtn control-btn" value="<?php echo $row["slno"];?>"></button></li>
+                            <li><button class="edit editbtn control-btn"></button></li>                            
+                            <li><a class="print control-btn" href="" onclick="window.print()"></a></li>
                         </div>
-                        
+
                     </div>
 
                     <div class="first-info grid-1">
@@ -333,7 +330,7 @@ session_start();
                                 </div>
                                 <div class="fields">
                                     <label for="o_address">Office / Present Address</label>
-                                    <p title="<?php echo $row['o_address'];?>"><?php echo $row['o_address']; ?></p>
+                                    <p title="<?php echo $row['o_address']; ?>"><?php echo $row['o_address']; ?></p>
                                 </div>
                                 <div class="fields">
                                     <label for="state">State</label>
@@ -482,6 +479,69 @@ session_start();
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="../index.php">Logout</a>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal HTML -->
+    <div id="DeleteModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="code.php" method="POST">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Delete Record</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" name="delete_id" class="delete_user_id">
+
+                        <p>Are you sure you want to delete these Records?</p>
+                        <p class="text-warning"><small>This action cannot be undone.</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                        <input type="submit" name="deleteUserButton" class="btn btn-danger" value="Delete">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal HTML -->
+    <div id="editModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="POST" action="#">
+
+                    <input type="hidden" name="edit_id" class="edit_user_id">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit Employee</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <textarea class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                        <input type="submit" class="btn btn-info" value="Save">
+                    </div>
+                </form>
             </div>
         </div>
     </div>

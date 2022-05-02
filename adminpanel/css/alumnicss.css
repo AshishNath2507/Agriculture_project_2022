@@ -79,7 +79,7 @@
 .button-container {
     display: flex;
     margin: -13px 35px 0 0;
-    gap: 3rem;
+    gap: 2.5rem;
     align-items: center;
     justify-content: center;
     text-decoration: none;
@@ -87,14 +87,14 @@
 }
 
 .button-container li a:hover{
-    box-shadow: ;
+    
 }
 
 .control-btn {
     height: 2.2rem;
     width: 4rem;
     background-color: transparent;
-    /* border: 0; */
+    border: 0;
 }
 
 

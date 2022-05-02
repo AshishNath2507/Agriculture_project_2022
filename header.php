@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <a class="navLink" href="./c.html">Contact Us</a>
+        <a class="navLink" href="./c.php">Contact Us</a>
         <a class="navLink" href="#">About Us</a>
 
         <div class="navDropdown" data-dropdown>

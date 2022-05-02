@@ -2,19 +2,6 @@
 
     session_start();
     require ('../connect.php');
-    
-   
-    // $sl=$_GET['slno'];
-
-    // $result = "DELETE FROM alumini WHERE slno='$sl'";
-
-    // if (mysqli_query($con, $result)) {
-    //     echo "<script>alert('Data deleted successfully')</script>";
-        
-    // } else {
-    //     echo "<script>alert('Data not deleted')</script>";
-    //     echo mysqli_error($con);
-    // }
 
 
     if(isset($_POST['deleteUserButton'])){

@@ -120,7 +120,7 @@ session_start();
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin</div>
             </a>
 
             <!-- Divider -->
@@ -373,7 +373,7 @@ session_start();
                                             <td title="<?php echo $row["email"]?>"> <?php echo $row["email"]?> </td>
                                             <td> <?php echo $row["phone"]?> </td>
                                             <td class="actions">
-                                                <button type="button" href="#editEmployeeModal" class="edit editbtn" data-toggle="modal"></button>                
+                                                <button type="button" class="edit editbtn" data-toggle="modal"></button>                
                                                 <button type="button" class="delete deletebtn" value="<?php echo $row["slno"]; ?>"></button>
                                             </td>
 
@@ -439,7 +439,7 @@ session_start();
                             <div class="modal-content">
                                 <form method="POST" action="#">
 
-                                    <input type="hidden" name="delete_id" class="edit_user_id">
+                                    <input type="hidden" name="edit_id" class="edit_user_id">
                                     
                                     <div class="modal-header">
                                         <h4 class="modal-title">Edit Employee</h4>
