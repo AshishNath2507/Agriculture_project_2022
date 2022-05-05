@@ -10,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alumni Registration</title>
-    <link rel="stylesheet" href="demo.css">
-    <link rel="stylesheet" href="alumnireg.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/alumnireg.css">
 
 </head>
 
@@ -49,12 +49,12 @@
                     </div>
                 </form>
                 <div class="login-link">
-                    <p>Already have an account? <a href="./alumnilogin.php">Login</a></p>
+                    <p>Already have an account?<a href="./alumnilogin.php">Login</a></p>
                 </div>
             </div>
         </div>
     </div>
-
+    <?php include "footer.php"; ?>
     <script src="demo.js"></script>
 
 </body>
