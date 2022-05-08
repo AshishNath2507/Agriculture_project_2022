@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,25 +8,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alumni Login</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="css/demo.css">
+    <script src="demo.js"></script>
     <style>
         /* BASIC */
 
-        /* html {
+        html {
             background-color: #56baed;
-        } */
+        }
 
         /* body {
             font-family: "Poppins", sans-serif; 
             height: 100vh;
         } */
         
-        /* *{
-            outline: 1px solid red;
+        *{
+            /* outline: 1px solid red; */
+            box-sizing: border-box;
 
-        } */
+        }
         
 
         a {
@@ -309,7 +311,8 @@
         }
 
         #icon {
-            width: 60%;
+            width: 40%;
+            margin: 15px 0 10px 0;
         }
     </style>
 </head>
@@ -317,6 +320,7 @@
 <body>
 
     <?php include("header.php"); ?>
+
     <div class="body-container">
         <div class="wrapper fadeInDown">
             <div id="formContent">
@@ -324,7 +328,7 @@
 
                 <!-- Icon -->
                 <div class="fadeIn first">
-                    <img src="images/aau.jpg" id="icon" alt="User Icon" />
+                    <img src="images/aau.jpg" id="icon" alt="" />
                 </div>
 
                 <!-- Login Form -->
@@ -335,16 +339,14 @@
                 </form>
 
                 <!-- Remind Passowrd -->
-                <!-- <div id="formFooter">
+                <div id="formFooter">
                     <a class="underlineHover" href="#">Forgot Password?</a>
-                </div> -->
+                </div>
 
             </div>
         </div>
     </div>
     <script src="demo.js"></script>
-    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 </body>
 
 </html>

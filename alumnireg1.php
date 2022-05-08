@@ -16,16 +16,12 @@
 
         if(!empty($email) && !empty($pswd)){
             if($rowCount > 0){
-                ?>
-                <script>
-                    alert("User with email already exist!");
-                </script>
-                <?php
+                header("Location: alumnireg.php?email_repeated");
             }else{
-                $password_hash = password_hash($pswd, PASSWORD_BCRYPT);
+                // $password_hash = password_hash($pswd, PASSWORD_BCRYPT);
 
 
-                $result = mysqli_query($con, "INSERT INTO alumnireg VALUES (null, '$fname','$email', '$password_hash', 'notverified')");
+                $result = mysqli_query($con, "INSERT INTO alumnireg VALUES (null, '$fname','$email', '$pswd', 'notverified')");
     
                 if($result){
                     $otp = rand(1000,9999);

@@ -8,6 +8,7 @@
     <title>Demo homepage Agri</title>
     <link rel="stylesheet" href="css/demo.css">
     <link rel="stylesheet" href="css/cs.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Rajdhani:wght@500&family=Yanone+Kaffeesatz:wght@200;500&display=swap" rel="stylesheet">
