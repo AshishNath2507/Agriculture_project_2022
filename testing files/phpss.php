@@ -1,6 +1,19 @@
 <?php 
 
 session_start();
+require '../connect.php';
+
+$mod_price = mysqli_query($con, "SELECT MODEL_PRICE FROM sheet1");
+
+$mod_price_arr = mysqli_fetch_array($mod_price);
+
+// echo $mod_price_arr;
+// var_dump($mod_price_arr);
+
+foreach ($mod_price_arr as $value) {
+    print json_encode($mod_price_arr);
+  }
+
 
 ?>
 
@@ -85,7 +98,7 @@ session_start();
             </thead>
             <tbody>
                 <?php
-                require '../connect.php';
+                
                 $result = mysqli_query($con, "SELECT * FROM sheet1");
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -96,7 +109,7 @@ session_start();
                         <td> <?php echo $row["ARIVAL"]; ?> </td>
                         <td> <?php echo $row["MIN PRICE"] ?> </td>
                         <td> <?php echo $row["MAX PRICE"]; ?> </td>
-                        <td> <?php echo $row["MODEL PRICE"] ?> </td>
+                        <td> <?php echo $row["MODEL_PRICE"] ?> </td>
                         <td class="actions">
                             <!-- <button type="button" class="edit editbtn" data-toggle="modal"></button>
                             <button type="button" class="delete deletebtn" value="<?php echo $row["DATE"]; ?>"></button> -->

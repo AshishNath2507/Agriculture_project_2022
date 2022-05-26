@@ -28,3 +28,13 @@ document.getElementById('button').addEventListener("click", () => {
         }
     }
 });
+
+
+
+
+
+
+//1 excel file -> json format
+//2 save  the json file
+//3 read and show the tables from json file
+//4 make charts using the data
