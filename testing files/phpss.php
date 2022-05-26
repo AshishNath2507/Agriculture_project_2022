@@ -10,9 +10,9 @@ $mod_price_arr = mysqli_fetch_array($mod_price);
 // echo $mod_price_arr;
 // var_dump($mod_price_arr);
 
-foreach ($mod_price_arr as $value) {
-    print json_encode($mod_price_arr);
-  }
+while($mod_price_arr){
+    echo $mod_price[0];
+}
 
 
 ?>
