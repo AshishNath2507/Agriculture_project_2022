@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faculty</title>
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/cs.css">
     <style>
         .body-container{
             margin: 2rem 12rem 0rem 12rem;
@@ -49,6 +51,10 @@
             </form>
         </form>
     </div>
+
+    <?php
+        include "footer.php";
+    ?>
 </body>
 
 </html>

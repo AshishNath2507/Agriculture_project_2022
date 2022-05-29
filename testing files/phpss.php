@@ -1,17 +1,32 @@
-<?php 
+<?php
 
 session_start();
 require '../connect.php';
 
-$mod_price = mysqli_query($con, "SELECT MODEL_PRICE FROM sheet1");
+// $mod_price = mysqli_query($con, "SELECT MODEL_PRICE FROM sheet1");
 
-$mod_price_arr = mysqli_fetch_array($mod_price);
+// $mod_price_arr = mysqli_fetch_array($mod_price);
 
 // echo $mod_price_arr;
 // var_dump($mod_price_arr);
 
-while($mod_price_arr){
-    echo $mod_price[0];
+// while($mod_price_arr){
+//     echo $mod_price_arr['model_price'];
+//     echo "\n";
+// }
+
+
+$sql = "SELECT * FROM sheet2";
+$query = mysqli_query($con, $sql);
+
+$row = mysqli_fetch_array($query);
+$date = $row['DATE'];
+$monthly = date('F', strtotime($date));
+$full = $monthly;
+
+foreach($query as $data){
+    $month = $data['DATE'];
+    $amount = $data['MODEL_PRICE'];
 }
 
 
@@ -37,8 +52,41 @@ while($mod_price_arr){
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha512-Hqe3s+yLpqaBbXM6VA0cnj/T56ii5YjNrMT9v+us11Q81L0wzUG0jEMNECtugqNu2Uq5MSttCg0p4KK0kCPVaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const labels = [
+           <?php echo json_encode($month); ?>
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [
+                    <?php echo json_encode($amount);?>
+                ],
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    beginAtZero: true
+                }
+            }
+        };
+    </script>
+
+
+
     <style>
-        .table-container{
+        .table-container {
             width: 1100px;
             height: 550px;
             padding: 10px;
@@ -49,6 +97,39 @@ while($mod_price_arr){
 </head>
 
 <body>
+
+
+    <!-- <div class="container">
+        <div class="row">
+            <select id='gMonth2' onchange="show_month()">
+                <option value=''>--Select Month--</option>
+                <option selected value='1'>Janaury</option>
+                <option value='2'>February</option>
+                <option value='3'>March</option>
+                <option value='4'>April</option>
+                <option value='5'>May</option>
+                <option value='6'>June</option>
+                <option value='7'>July</option>
+                <option value='8'>August</option>
+                <option value='9'>September</option>
+                <option value='10'>October</option>
+                <option value='11'>November</option>
+                <option value='12'>December</option>
+            </select>
+
+            <input type="date" name="" id="">
+        </div>
+    </div> -->
+
+
+
+    <div style="width: 500px;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-12 mt-4">
@@ -98,7 +179,7 @@ while($mod_price_arr){
             </thead>
             <tbody>
                 <?php
-                
+
                 $result = mysqli_query($con, "SELECT * FROM sheet1");
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -123,9 +204,16 @@ while($mod_price_arr){
         </table>
     </div>
 
-    <?php 
-        include ("../footer.php");
-    ?>
+
+    <script>
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+
+
+
 
     <script>
         $(document).ready(function() {

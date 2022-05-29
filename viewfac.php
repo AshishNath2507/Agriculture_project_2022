@@ -12,6 +12,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="cs/demo.css">
+
+    <!-- jQuery dataTable cdns -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./adminpanel/DataTables/datatables.js"></script>
+    <script src="./adminpanel/DataTables/Select-1.3.4/js/select.dataTables.min.js"></script>
+    <link rel="stylesheet" href="./adminpanel/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="./adminpanel/DataTables/DataTables-1.11.5/css/dataTables.dataTables.min.css">
+
     <title>View Students</title>
 
 <body>
@@ -26,7 +35,6 @@
             <h1 class="h3 mb-0 text-gray-800">View Students</h1>
         </div>
 
-
         <!-- DataTales Example -->
 
         <div class="card shadow mb-4">
@@ -36,10 +44,9 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered fac_table" id="dataTable" width="100%" cellspacing="0">
                         <thead>
-                            <tr>
-                                
+                            <tr>                                
                                 <td>Name</td>
                                 <td>Department</td>
                                 <td>Year</td>
@@ -55,15 +62,14 @@
                             $result = mysqli_query($con, "select * from faculty");
                             while ($row = mysqli_fetch_array($result)) {
                                 echo '
-                                            <tr>
-                                                <td>' . $row["name"] . '</td>
-                                                <td>' . $row["dept"] . '</td>
-                                                <td>' . $row["year"] . '</td>
-                                                <td>' . $row["email"] . '</td>
-                                                <td>' . $row["phone"] . '</td>
-                                                <td>' . $row["addr"] . '</td>
-                                            </tr>
-
+                                    <tr>
+                                        <td>' . $row["name"] . '</td>
+                                        <td>' . $row["dept"] . '</td>
+                                        <td>' . $row["year"] . '</td>
+                                        <td>' . $row["email"] . '</td>
+                                        <td>' . $row["phone"] . '</td>
+                                        <td>' . $row["addr"] . '</td>
+                                    </tr>
                                     ';
                             }
                             ?>
@@ -73,39 +79,31 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
     <!-- /.container-fluid -->
 
 
-    </div>
+    
     <!-- End of Main Content -->
 
     <!-- Footer -->
-    <footer class="sticky-footer bg-white">
+    <!-- <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
                 <span>Copyright &copy; Your Website 2021</span>
             </div>
         </div>
-    </footer>
+    </footer> -->
     <!-- End of Footer -->
 
-    </div>
-    <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
+    <!-- <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
-    </a>
+    </a> -->
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -121,7 +119,17 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
+    <?php
+        include "footer.php";
+    ?>
+
+    <script>
+        $(document).ready(function() {
+            $('.fac_table').DataTable();
+        });
+    </script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
