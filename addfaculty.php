@@ -20,34 +20,38 @@
         include('./header.php')
     ?>
     <div class="body-container">
-        <form action="addfaculty1.php" method="post">
+        <form action="addfaculty1.php" method="post" enctype="multipart/form-data">
             <form>
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input name="name"  type="text" class="form-control" >
+                    <input name="name"  type="text" class="form-control" required >
                 </div>
                 <div class="mb-3">
                     <label for="branch" class="form-label">Department</label>
-                    <input type="text" name="dept" class="form-control">
+                    <input type="text" name="dept" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="year" class="form-label">Year</label>
-                    <input type="text" name="year" class="form-control">
+                    <input type="text" name="year" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
-                    <input type="email" name="email" class="form-control" >
+                    <input type="email" name="email" class="form-control"  required>
                 </div>
                 <div class="mb-3">
                     <label for="phone" class="form-label">Phone Number</label>
-                    <input type="text" name="phone" class="form-control" >
+                    <input type="text" name="phone" class="form-control"  required>
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Permanent Address</label>
-                    <input type="text" name="address" class="form-control">
+                    <input type="text" name="address" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Image</label>
+                    <input type="file" name="photo" class="form-control" required>
                 </div>
                 
-                <center><button type="submit" class="btn btn-primary">Submit</button></center>
+                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>
         </form>
     </div>

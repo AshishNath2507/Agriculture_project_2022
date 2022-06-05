@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+require "../connect.php";
 
 ?>
 
@@ -68,6 +69,16 @@ session_start();
             text-rendering: auto;
             -webkit-font-smoothing: antialiased;
             color: red;
+            border: 0;
+        }
+        .appr::before {
+            display: inline-block;
+            font: var(--fa-font-solid);
+            content: "\e53e";
+            font-weight: 600;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            color: blue;
             border: 0;
         }
         td{
@@ -165,9 +176,9 @@ session_start();
                 <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item active" href="alumnicontrol.php"><i class="fas fa-fw fa-wrench"></i>Alumni</a>
-                        <a class="collapse-item" href="stuctrl.php"><i class="fas fa-fw fa-wrench"></i>Student</a>
-                        <a class="collapse-item active" href="facctrl.php"><i class="fas fa-fw fa-wrench"></i>Faculty</a>
+                        <a class="collapse-item" href="alumnicontrol.php"><i class="fas fa-fw fa-wrench"></i>Alumni</a>
+                        <a class="collapse-item active" href="stuctrl.php"><i class="fas fa-fw fa-wrench"></i>Student</a>
+                        <a class="collapse-item" href="facctrl.php"><i class="fas fa-fw fa-wrench"></i>Faculty</a>
                         <a class="collapse-item" href="staffctrl.php"><i class="fas fa-fw fa-wrench"></i>Staff</a>
                         <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a> -->
                         <!-- <a class="collapse-item" href="utilities-other.html">Other</a> --> 
@@ -330,8 +341,7 @@ session_start();
                                 <div class="table-title">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <h2>Manage <b>Alumni</b></h2>
-
+                                            <h2>Manage <b>Students</b></h2>
                                         </div>
                                         <!-- <div class="col-sm-6">
                                             <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Alumni</span></a>
@@ -346,37 +356,40 @@ session_start();
                                 <table id="alumni" class="table table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Slno</th>
+                                            <th>ID</th>
                                             <th>Image</th>
                                             <th>Name</th>
-                                            <th>Occupation</th>
-                                            <th>Organization</th>
-                                            <th>Office/Present Address</th>
-                                            <th>State</th>
+                                            <th>Branch</th>
+                                            <th>Year</th>
+                                            <th>Present Address</th>
                                             <th>Email ID</th>
                                             <th>Mobile Number</th>
+                                            <th>Status</th>
+                                            <th>Created</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
                                         require '../connect.php';
-                                        $result = mysqli_query($con, "SELECT * FROM alumini ORDER BY slno DESC");
+                                        $result = mysqli_query($con, "SELECT * FROM students ORDER BY std_id ASC");
                                         while ($row = mysqli_fetch_array($result)) {
                                     ?>
                                         <tr>
-                                            <td> <?php echo $row["slno"]  ?> </td>
-                                            <td><img src="<?php echo '../' . $row["photo"]; ?>" alt="image" style="width:50px;"></td>
-                                            <td> <a href="./alumni_full_details.php?slno=<?php echo $row["slno"] ?>"><?php echo $row["name"]?></a></td>
-                                            <td> <?php echo $row["occupation"]?> </td>
-                                            <td> <?php echo $row["organization"]?> </td>
-                                            <td title="<?php echo $row["o_address"]?>"> <?php echo $row["o_address"]?> </td>
-                                            <td> <?php echo $row["state"]?> </td>
+                                            <td> <?php echo $row["std_id"]  ?> </td>
+                                            <td><img src="<?php echo '../' . $row["photo"]; ?>" alt="no-image" style="width:50px;"></td>
+                                            <td> <?php echo $row["name"]?></a></td>
+                                            <td> <?php echo $row["branch"]?> </td>
+                                            <td> <?php echo $row["year"]?> </td>
+                                            <td title="<?php echo $row["addr"]?>"> <?php echo $row["addr"]?> </td>
                                             <td title="<?php echo $row["email"]?>"> <?php echo $row["email"]?> </td>
                                             <td> <?php echo $row["phone"]?> </td>
+                                            <td> <?php echo $row["reg_time"]?> </td>
+                                            <td> <?php echo $row["status"]?> </td>
                                             <td class="actions">
-                                                <button type="button" class="edit editbtn" data-toggle="modal"></button>                
-                                                <button type="button" class="delete deletebtn" value="<?php echo $row["slno"]; ?>"></button>
+                                                <button type="button" class="appr apprbtn" data-toggle="modal" value="<?php echo $row["std_id"]; ?>"></button>                
+                                                <button type="button" class="edit editbtn" data-toggle="modal" value="<?php echo $row["std_id"]; ?>"></button>                
+                                                <button type="button" class="delete deletebtn" value="<?php echo $row["std_id"]; ?>"></button>
                                             </td>
 
                                         </tr>
@@ -478,7 +491,7 @@ session_start();
                     <div id="DeleteModal" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <form action="./delete/alumni-delete.php" method="POST">
+                                <form action="./delete/std-delete.php" method="POST">
                                     <div class="modal-header">
                                         <h4 class="modal-title">Delete Record</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -491,7 +504,31 @@ session_start();
                                     </div>
                                     <div class="modal-footer">
                                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                        <input type="submit" name="deleteUserButton" class="btn btn-danger" value="Delete">
+                                        <input type="submit" name="deleteStuButton" class="btn btn-danger" value="Delete">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Approval Modal HTML -->
+                    <div id="apprModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form action="./delete/std-appr.php" method="POST">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Approved Record</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="text" name="appr_id" class="appr_user_id">
+
+                                        <p>Are you sure you want to approve this Record?</p>
+                                        <p class="text-warning"><small>This action cannot be undone.</small></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                                        <input type="submit" name="apprStuButton" class="btn btn-primary" value="Approve">
                                     </div>
                                 </form>
                             </div>
@@ -547,6 +584,17 @@ session_start();
         //Datatable function !!!important for datatable to run
         $(document).ready(function() {
             $('#alumni').DataTable();
+        });
+
+        //Approval modal function
+        $(document).ready(function(){
+            $('.apprbtn').click(function(e){
+                e.preventDefault();
+                // if the button has any value, it will be stored in "user_id"
+                var user_id = $(this).val();
+                $('.appr_user_id').val(user_id);
+                $('#apprModal').modal('show');                
+            });
         });
 
         //Delete modal function

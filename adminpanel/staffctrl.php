@@ -165,10 +165,10 @@ session_start();
                 <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item active" href="alumnicontrol.php"><i class="fas fa-fw fa-wrench"></i>Alumni</a>
-                        <a class="collapse-item" href="stuctrl.php"><i class="fas fa-fw fa-wrench"></i>Student</a>
-                        <a class="collapse-item active" href="facctrl.php"><i class="fas fa-fw fa-wrench"></i>Faculty</a>
-                        <a class="collapse-item" href="staffctrl.php"><i class="fas fa-fw fa-wrench"></i>Staff</a>
+                        <a class="collapse-item" href="alumnicontrol.php"><i class="fas fa-fw fa-wrench"></i>Alumni</a>
+                        <a class="collapse-item" href="./stuctrl.php"><i class="fas fa-fw fa-wrench"></i>Student</a>
+                        <a class="collapse-item" href="facctrl.php"><i class="fas fa-fw fa-wrench"></i>Faculty</a>
+                        <a class="collapse-item active" href="staffctrl.php"><i class="fas fa-fw fa-wrench"></i>Staff</a>
                         <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a> -->
                         <!-- <a class="collapse-item" href="utilities-other.html">Other</a> --> 
                     </div>
@@ -478,7 +478,7 @@ session_start();
                     <div id="DeleteModal" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <form action="./delete/alumni-delete.php" method="POST">
+                                <form action="code.php" method="POST">
                                     <div class="modal-header">
                                         <h4 class="modal-title">Delete Record</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

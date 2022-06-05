@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,131 +8,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <!-- jQuery dataTable cdns -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./adminpanel/DataTables/datatables.js"></script>
+    <script src="./adminpanel/DataTables/Select-1.3.4/js/select.dataTables.min.js"></script>
+    <link rel="stylesheet" href="./adminpanel/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="./adminpanel/DataTables/DataTables-1.11.5/css/dataTables.dataTables.min.css">
+
     <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/cs.css">
     <title>View Students</title>
+    <style>
+        td{
+            max-width: 100px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    </style>
+</head>
 
+<body>
     <?php include("header.php"); ?>
-
     <!-- Begin Page Content -->
     <div class="container-fluid">
-
-        <!-- Page Heading -->
+        <div class="card shadow mb-4">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">View Alumni</h1>
-            
         </div>
-
-
-        <!-- DataTales Example -->
-
-        <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <!-- <h3 class="m-0 font-weight-bold text-primary">Alumni Table</h3> -->
                 <h4><a style="color: green;" href="alumniadd.php">Add Alumni</a></h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table id="alumni" class="table compact display order-column cell-border">
                         <thead>
                             <tr>
-                                
-                                <td>Name</td>
-                                <!-- <td>Branch</td>
-                                <td>Year</td>
-                                <td>E-mail</td>
-                                <td>Phone</td>
-                                <td>Address</td> -->
+                                <th>Slno</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Occupation</th>
+                                <th>Organization</th>
+                                <th>Office/Present Address</th>
+                                <th>State</th>
+                                <th>Email ID</th>
+                                <th>Mobile Number</th>
                             </tr>
                         </thead>
                         <tbody>
-
-                          
-
+                            <?php
+                            require 'connect.php';
+                            $result = mysqli_query($con, "SELECT * FROM alumini ORDER BY slno ASC");
+                            while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                                <tr>
+                                    <td> <?php echo $row["slno"]  ?> </td>
+                                    <td><img src="<?php echo './' . $row["photo"]; ?>" alt="image" style="width:50px;"></td>
+                                    <td> <?php echo $row["name"] ?></td>
+                                    <td> <?php echo $row["occupation"] ?> </td>
+                                    <td> <?php echo $row["organization"] ?> </td>
+                                    <td title="<?php echo $row["o_address"] ?>"> <?php echo $row["o_address"] ?> </td>
+                                    <td> <?php echo $row["state"] ?> </td>
+                                    <td title="<?php echo $row["email"] ?>"> <?php echo $row["email"] ?> </td>
+                                    <td> <?php echo $row["phone"] ?> </td>
+                                </tr>
+                            <?php
+                            };
+                            ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-
-
-
     </div>
-    <!-- /.container-fluid -->
-
-
-    </div>
-    <!-- End of Main Content -->
 
     <!-- Footer -->
-    <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Your Website 2021</span>
-            </div>
-        </div>
-    </footer>
+    <?php include "footer.php"; ?>
     <!-- End of Footer -->
 
-    </div>
-    <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="logout.php">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
-
-    <script language="JavaScript" type="text/javascript">
+    <!-- Datatable -->
+    <script>
         $(document).ready(function() {
-            $("a.action").click(function(e) {
-                if (!confirm('Are you sure?')) {
-                    e.preventDefault();
-                    return false;
-                }
-                return true;
-            });
+            $('#alumni').DataTable();
         });
     </script>
 
-    </body>
+   
+
+</body>
 
 </html>

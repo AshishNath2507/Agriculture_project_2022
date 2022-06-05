@@ -44,7 +44,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <style>
-        .actions{
+        .actions {
             display: flex;
             justify-content: space-evenly;
             gap: 1rem;
@@ -70,7 +70,19 @@ session_start();
             color: red;
             border: 0;
         }
-        td{
+
+        .appr::before {
+            display: inline-block;
+            font: var(--fa-font-solid);
+            content: "\e53e";
+            font-weight: 600;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            color: blue;
+            border: 0;
+        }
+
+        td {
             max-width: 100px;
             text-overflow: ellipsis;
             overflow: hidden;
@@ -165,12 +177,12 @@ session_start();
                 <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item active" href="alumnicontrol.php"><i class="fas fa-fw fa-wrench"></i>Alumni</a>
-                        <a class="collapse-item" href="stuctrl.php"><i class="fas fa-fw fa-wrench"></i>Student</a>
+                        <a class="collapse-item" href="alumnicontrol.php"><i class="fas fa-fw fa-wrench"></i>Alumni</a>
+                        <a class="collapse-item" href="./stuctrl.php"><i class="fas fa-fw fa-wrench"></i>Student</a>
                         <a class="collapse-item active" href="facctrl.php"><i class="fas fa-fw fa-wrench"></i>Faculty</a>
                         <a class="collapse-item" href="staffctrl.php"><i class="fas fa-fw fa-wrench"></i>Staff</a>
                         <!-- <a class="collapse-item" href="utilities-animation.html">Animations</a> -->
-                        <!-- <a class="collapse-item" href="utilities-other.html">Other</a> --> 
+                        <!-- <a class="collapse-item" href="utilities-other.html">Other</a> -->
                     </div>
                 </div>
             </li>
@@ -179,8 +191,7 @@ session_start();
             <hr class="sidebar-divider">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Co-Admin</span>
                 </a>
@@ -346,40 +357,43 @@ session_start();
                                 <table id="alumni" class="table table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Slno</th>
+                                            <th>#</th>
                                             <th>Image</th>
                                             <th>Name</th>
-                                            <th>Occupation</th>
-                                            <th>Organization</th>
-                                            <th>Office/Present Address</th>
-                                            <th>State</th>
+                                            <th>Department</th>
+                                            <th>Year</th>
                                             <th>Email ID</th>
                                             <th>Mobile Number</th>
+                                            <th>Address</th>
+                                            <th>Created</th>
+                                            <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php
+                                        <?php
                                         require '../connect.php';
-                                        $result = mysqli_query($con, "SELECT * FROM alumini ORDER BY slno DESC");
+                                        $result = mysqli_query($con, "SELECT * FROM faculty ORDER BY fac_id ASC");
                                         while ($row = mysqli_fetch_array($result)) {
-                                    ?>
-                                        <tr>
-                                            <td> <?php echo $row["slno"]  ?> </td>
-                                            <td><img src="<?php echo '../' . $row["photo"]; ?>" alt="image" style="width:50px;"></td>
-                                            <td> <a href="./alumni_full_details.php?slno=<?php echo $row["slno"] ?>"><?php echo $row["name"]?></a></td>
-                                            <td> <?php echo $row["occupation"]?> </td>
-                                            <td> <?php echo $row["organization"]?> </td>
-                                            <td title="<?php echo $row["o_address"]?>"> <?php echo $row["o_address"]?> </td>
-                                            <td> <?php echo $row["state"]?> </td>
-                                            <td title="<?php echo $row["email"]?>"> <?php echo $row["email"]?> </td>
-                                            <td> <?php echo $row["phone"]?> </td>
-                                            <td class="actions">
-                                                <button type="button" class="edit editbtn" data-toggle="modal"></button>                
-                                                <button type="button" class="delete deletebtn" value="<?php echo $row["slno"]; ?>"></button>
-                                            </td>
+                                        ?>
+                                            <tr>
+                                                <td> <?php echo $row["fac_id"]  ?> </td>
+                                                <td><img src="<?php echo '../' . $row["photo"]; ?>" alt="image" style="width:50px;"></td>
+                                                <td> <a href="#"><?php echo $row["name"] ?></a></td>
+                                                <td> <?php echo $row["dept"] ?> </td>
+                                                <td> <?php echo $row["year"] ?> </td>
+                                                <td title="<?php echo $row["email"] ?>"> <?php echo $row["email"] ?> </td>
+                                                <td> <?php echo $row["phone"] ?> </td>
+                                                <td> <?php echo $row["addr"] ?> </td>
+                                                <td> <?php echo $row["created"] ?> </td>
+                                                <td> <?php echo $row["status"] ?> </td>
+                                                <td class="actions">
+                                                    <button type="button" class="appr apprbtn" data-toggle="modal" value="<?php echo $row["fac_id"]; ?>"></button>
+                                                    <button type="button" class="edit editbtn" data-toggle="modal" value="<?php echo $row["fac_id"]; ?>"></button>
+                                                    <button type="button" class="delete deletebtn" value="<?php echo $row["fac_id"]; ?>"></button>
+                                                </td>
 
-                                        </tr>
+                                            </tr>
                                         <?php
                                         };
                                         ?>
@@ -396,7 +410,7 @@ session_start();
 
                                 <!-- <a href="#deleteEmployeeModal" ' . $row["slno"] . '  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a> -->
 
-                                
+
                             </div>
                         </div>
                     </div>
@@ -442,7 +456,7 @@ session_start();
                                 <form method="POST" action="#">
 
                                     <input type="hidden" name="edit_id" class="edit_user_id">
-                                    
+
                                     <div class="modal-header">
                                         <h4 class="modal-title">Edit Employee</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -478,20 +492,44 @@ session_start();
                     <div id="DeleteModal" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <form action="./delete/alumni-delete.php" method="POST">
+                                <form action="./delete/std-delete.php" method="POST">
                                     <div class="modal-header">
                                         <h4 class="modal-title">Delete Record</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                     </div>
                                     <div class="modal-body">
-                                        <input type="hidden" name="delete_id" class="delete_user_id">
+                                        <input type="text" name="delete_id" class="delete_user_id">
 
                                         <p>Are you sure you want to delete these Records?</p>
                                         <p class="text-warning"><small>This action cannot be undone.</small></p>
                                     </div>
                                     <div class="modal-footer">
                                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                        <input type="submit" name="deleteUserButton" class="btn btn-danger" value="Delete">
+                                        <input type="submit" name="deleteFacButton" class="btn btn-danger" value="Delete">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Approval Modal HTML -->
+                    <div id="apprModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form action="./delete/std-appr.php" method="POST">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Approved Record</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="text" name="appr_id" class="appr_user_id">
+
+                                        <p>Are you sure you want to approve this Record?</p>
+                                        <p class="text-warning"><small>This action cannot be undone.</small></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                                        <input type="submit" name="apprFacButton" class="btn btn-primary" value="Approve">
                                     </div>
                                 </form>
                             </div>
@@ -549,25 +587,38 @@ session_start();
             $('#alumni').DataTable();
         });
 
-        //Delete modal function
+        //Approval modal function
         $(document).ready(function(){
-            $('.deletebtn').click(function(e){
+            $('.apprbtn').click(function(e){
+                e.preventDefault();
+                // if the button has any value, it will be stored in "user_id"
+                var user_id = $(this).val();
+                $('.appr_user_id').val(user_id);
+                $('#apprModal').modal('show');                
+            });
+        });
+
+        //Delete modal function
+        $(document).ready(function() {
+            $('.deletebtn').click(function(e) {
                 e.preventDefault();
                 var user_id = $(this).val();
                 $('.delete_user_id').val(user_id);
-                $('#DeleteModal').modal('show');                
+                $('#DeleteModal').modal('show');
             });
         });
 
         //Edit modal function
-        $(document).ready(function(){
-            $('.editbtn').click(function(e){
+        $(document).ready(function() {
+            $('.editbtn').click(function(e) {
                 e.preventDefault();
                 var user_id = $(this).val();
                 $('.edit_user_id').val(user_id);
                 $('#editModal').modal('show');
             });
         });
+
+        
     </script>
 
     <!-- Bootstrap core JavaScript-->

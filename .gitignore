@@ -1,3 +1,6 @@
 node_modules/
 adminpanel/DataTables/
 adminpanel/vendor/
+testing
+alumni_dashboard/ckeditor
+stock/PHPExcel-1.8

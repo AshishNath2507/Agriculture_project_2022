@@ -26,6 +26,7 @@
             </div>
         </div>
 
+        <a class="navLink" href="./stock/stockmain.php">Stock</a>
         <a class="navLink" href="./c.php">Contact Us</a>
         <a class="navLink" href="#">About Us</a>
 

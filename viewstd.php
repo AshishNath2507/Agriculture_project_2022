@@ -28,15 +28,15 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
-        
-        
+
+
         <!-- DataTales Example -->
-        
+
         <div class="card shadow mb-4">
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-4">
                 <h1 class="h3 mb-0 text-gray-800">View Students</h1>
-    
+
             </div>
             <div class="card-header py-3">
                 <!-- <h3 class="m-0 font-weight-bold text-primary">Student Table</h3> -->
@@ -44,10 +44,11 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered std_table" id="dataTable" width="100%" cellspacing="0">
+                    <table class="std_table display cell-border compact stripe" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <td> #</td>
+                                <td>#</td>
+                                <td>Image</td>
                                 <td>Name</td>
                                 <td>Branch</td>
                                 <td>Year</td>
@@ -62,21 +63,22 @@
                             require 'connect.php';
                             $result = mysqli_query($con, "SELECT * FROM students WHERE status = 'approved'");
                             while ($row = mysqli_fetch_array($result)) {
-                                echo '
-                                            <tr>
-                                                <td>'.$row['std_id'].'</td>
-                                                <td>' . $row["name"] . '</td>
-                                                <td>' . $row["branch"] . '</td>
-                                                <td>' . $row["year"] . '</td>
-                                                <td>' . $row["email"] . '</td>
-                                                <td>' . $row["phone"] . '</td>
-                                                <td>' . $row["addr"] . '</td>
-                                            </tr>
+                            ?>
+                                <tr>
+                                    <td><?php echo $row['std_id']; ?></td>
+                                    <td><img src="<?php echo './' . $row["photo"]; ?>" alt="image" style="width:50px;"></td>
+                                    <td><?php echo $row['name']; ?></td>
+                                    <td><?php echo $row['branch']; ?></td>
+                                    <td><?php echo $row['year']; ?></td>
+                                    <td><?php echo $row['email']; ?></td>
+                                    <td><?php echo $row['phone']; ?></td>
+                                    <td><?php echo $row['addr']; ?></td>
+                                </tr>
 
-                                    ';
+                            <?php
                             }
                             ?>
-        <!-- UPDATE `students` SET `status` = 'approved' WHERE `students`.`std_id` = 2;  -->
+                            <!-- UPDATE `students` SET `status` = 'approved' WHERE `students`.`std_id` = 2;  -->
 
                         </tbody>
                     </table>
@@ -87,7 +89,7 @@
     <!-- /.container-fluid -->
 
 
-    
+
     <!-- End of Main Content -->
 
     <!-- Footer -->
@@ -100,10 +102,10 @@
     </footer> -->
     <!-- End of Footer -->
 
-    
+
     <!-- End of Content Wrapper -->
 
-    
+
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
@@ -131,7 +133,7 @@
     </div> -->
 
     <?php
-        include "footer.php";
+    include "footer.php";
     ?>
 
     <script>
