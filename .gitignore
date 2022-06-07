@@ -4,3 +4,4 @@ adminpanel/vendor/
 testing
 alumni_dashboard/ckeditor
 stock/PHPExcel-1.8
+library/sheetjs-master
